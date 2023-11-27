@@ -9,6 +9,7 @@
 //     pauseOnHover: false
 //   });
 document.addEventListener('DOMContentLoaded', () => {
+
   // スライダーの取得をする
   const slider = document.querySelector('.slider');
 
@@ -41,7 +42,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // インスタンスを作成して構成した後、mount() を呼び出すことでスライダーが初期化され、動作を始めます。
     .mount();
 
-});
 
 // リンクのホバー時に不透明度をアニメーションで変更する
 // $('a').hover(
@@ -160,11 +160,12 @@ window.addEventListener('scroll', ()=> {
 // });
 // Worksの画像をクリックしたときにモーダルで拡大表示する
 document.querySelectorAll('.works img').forEach(img => {
-  img.addEventListener('click', () => {
+  img.addEventListener('click', (e) => {
     const imgSrc = img.getAttribute('src');
     document.querySelector('.big-img').setAttribute('src', imgSrc);
     document.querySelector('.modal').style.display = 'block';
-    return false;
+    //return false;
+    e.preventDefault();
   });
 });
 // 閉じるボタンをクリックしたときにモーダルを閉じる
@@ -174,6 +175,11 @@ document.querySelectorAll('.works img').forEach(img => {
 // });
 
 // 閉じるボタンをクリックしたときにモーダルを閉じる
-document.querySelector('.close-btn').addEventListener('click', () =>{
-  document.querySelector('.modal').style.display = 'none';
+
+  document.querySelector('.close-btn').addEventListener('click', () =>{
+    document.querySelector('.modal').style.display = 'none';
+  });
+
 });
+
+
